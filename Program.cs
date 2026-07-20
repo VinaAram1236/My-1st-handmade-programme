@@ -27,12 +27,12 @@ class Program
         {
             Console.Write("How old are you? ");
 
-            if (int.TryParse(Console.ReadLine(), out age))
+            if (int.TryParse(Console.ReadLine(), out age) && age >= 0 && age <= 120)
             {
                 break;
             }
 
-            Console.WriteLine("The age entered is invalid. Please enter a valid whole number.");
+            Console.WriteLine("The age entered is invalid. Please enter a whole number between 0 and 120.");
             Console.WriteLine();
         }
 
