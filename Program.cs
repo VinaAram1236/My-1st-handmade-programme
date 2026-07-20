@@ -1,14 +1,40 @@
 ﻿using System;
+using System.Linq;
 
 class Program
 {
     static void Main()
     {
-        Console.Write("What is your name? ");
-        string name = Console.ReadLine();
+        string name;
 
-        Console.Write("How old are you? ");
-        int age = Convert.ToInt32(Console.ReadLine());
+        while (true)
+        {
+            Console.Write("What is your name? ");
+            name = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(name) && !name.Any(char.IsDigit))
+            {
+                break;
+            }
+
+            Console.WriteLine("The name entered is invalid. Please enter a valid name using letters only.");
+            Console.WriteLine();
+        }
+
+        int age;
+
+        while (true)
+        {
+            Console.Write("How old are you? ");
+
+            if (int.TryParse(Console.ReadLine(), out age))
+            {
+                break;
+            }
+
+            Console.WriteLine("The age entered is invalid. Please enter a valid whole number.");
+            Console.WriteLine();
+        }
 
         Console.WriteLine();
 
